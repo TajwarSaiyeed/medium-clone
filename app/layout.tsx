@@ -5,7 +5,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "@/providers/convex-client-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import Header from "@/components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
