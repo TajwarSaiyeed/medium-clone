@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { Post } from "@/lib/types";
+import OptimizedImage from "@/components/optimized-image";
 import { combineName, formatDate } from "@/lib/utils";
 
 import { Separator } from "@/components/ui/separator";
@@ -55,8 +55,8 @@ export default function PostItem({ post }: { post: Post }) {
           {/* Cover Image */}
           <div className="relative aspect-video w-full sm:w-1/4">
             {post.coverImageUrl && (
-              <Image
-                alt=""
+              <OptimizedImage
+                alt={post.title}
                 src={post.coverImageUrl}
                 className="h-full w-full rounded-md object-cover"
                 fill

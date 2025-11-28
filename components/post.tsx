@@ -2,6 +2,7 @@
 
 import { useQuery, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import OptimizedImage from "@/components/optimized-image";
 
 import { combineName, formatDate } from "@/lib/utils";
 
@@ -92,8 +93,13 @@ const Post = ({ slug }: { slug: string }) => {
 
         {/* Cover image */}
         {post.coverImageUrl && (
-          <div className="mt-16">
-            <img src={post.coverImageUrl} alt={post.title} />
+          <div className="relative mt-16 w-full aspect-video">
+            <OptimizedImage
+              src={post.coverImageUrl}
+              alt={post.title}
+              className="rounded-lg object-cover"
+              fill
+            />
           </div>
         )}
 
