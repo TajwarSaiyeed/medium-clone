@@ -35,7 +35,7 @@ http.route({
   }),
 });
 
-async function validateRequest(req: Request): Promise<WebhookEvent | null> {
+const validateRequest = async (req: Request): Promise<WebhookEvent | null> => {
   const payloadString = await req.text();
   const svixHeaders = {
     "svix-id": req.headers.get("svix-id")!,
@@ -49,6 +49,6 @@ async function validateRequest(req: Request): Promise<WebhookEvent | null> {
     console.error("Error verifying webhook event", error);
     return null;
   }
-}
+};
 
 export default http;
