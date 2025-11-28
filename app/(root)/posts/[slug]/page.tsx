@@ -1,7 +1,12 @@
 import Post from "@/components/post";
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+type Params = Promise<{
+  slug: string;
+}>;
 
+const PostPage = async ({ params }: { params: Params }) => {
+  const { slug } = await params;
   return <Post slug={slug} />;
-}
+};
+
+export default PostPage;
